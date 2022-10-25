@@ -1,7 +1,13 @@
+import dotenv from 'dotenv'
+dotenv.config()
+const mongoURL = process.env.MONGO_URL
+
 export const config = {
   secrets: {
-    jwt: 'learneverything'
+    jwt: process.env.JWT_SECRET,
+    jwtExp: process.env.JWT_EXPIRE,
+    jwtCookieExp: process.env.JWT_COOKIE_EXPIRE
   },
-  dbUrl: 'mongodb://localhost:27017/api-design',
+  dbUrl: mongoURL,
   port: 80
 }

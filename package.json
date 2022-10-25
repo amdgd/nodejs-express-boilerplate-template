@@ -1,25 +1,36 @@
 {
-  "name": "boilerplate_express_api",
+  "name": "devcamper-api",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Ankit Maheshwari",
+  "author": "Ankit",
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir dist",
     "test": "NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
     "dev": "nodemon --exec yarn restart",
     "restart": "rimraf dist && yarn build && NODE_ENV=dev node dist/index.js",
-    "start": "NODE_ENV=prod node dist/index.js"
+    "start": "NODE_ENV=prod node dist/index.js",
+    "delete": "rimraf dist && yarn build && node dist/seeders.js -d",
+    "getdata": "rimraf dist && yarn build && node dist/seeders.js -i"
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "cuid": "^2.1.4",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "jsonwebtoken": "^8.4.0",
-    "lodash": "^4.17.11",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.3.13",
-    "validator": "^10.9.0"
+    "morgan": "^1.10.0",
+    "node-geocoder": "^4.2.0",
+    "slugify": "^1.6.5",
+    "validator": "^10.9.0",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -57,8 +68,5 @@
       "dist/"
     ],
     "restoreMocks": true
-  },
-  "description": "Node.js API Masterclass With Express & MongoDB // Brad Traversy",
-  "repository": "https://github.com/amdgd/devcamper_api2.git",
-  "private": true
+  }
 }
